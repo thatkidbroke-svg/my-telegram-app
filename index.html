@@ -37,7 +37,23 @@
       tg.sendData(JSON.stringify({ action: "mini_app_test", result: "success" }));
       tg.close();
     }
+<script>
+  function sendData() {
+    const tg = window.Telegram.WebApp;
+    // Отправляем данные в бота
+    tg.sendData(JSON.stringify({ 
+      action: "user_action", 
+      message: "Пользователь нажал кнопку!" 
+    }));
+    // Закрываем приложение
+    tg.close();
+  }
 
+  // Расширяем окно на весь экран
+  if (window.Telegram && window.Telegram.WebApp) {
+    window.Telegram.WebApp.expand();
+  }
+</script>
     // Опционально: расширить окно на весь экран
     window.Telegram.WebApp.expand();
   </script>
